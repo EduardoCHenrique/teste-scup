@@ -1,0 +1,79 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400' rel='stylesheet' type='text/css'>
+  </head>
+  <body ng-app="scupTestApp" id="scup">
+<body ng-controller="FetchresultsCtrl">
+  <header>
+    <h1 id="brand">Fale <span>+</span><span class="smal">+</span></h1>
+  </header>
+
+  <article>
+    <h2>Comparar Planos</h2>
+    <div class="select-wrapper">
+      <label for="teste">Origem</label>
+      <select id="teste" ng-model="callInfo.origin" ng-selected="callInfo.origin">
+        <!-- <option default>DDD</option> -->
+          <option ng-repeat="Detail in dddDetail.data" value="{{Detail.ddd}}" >{{Detail.ddd + " - " + Detail.city}}</option>
+      </select>
+    </div>
+
+    <div class="select-wrapper">
+      <label for="teste">Destino</label>
+      <select ng-model="callInfo.destiny">
+          <option ng-repeat="Detail in dddDetail.data" value="{{Detail.ddd}}" ng-model="callInfo.destiny">{{Detail.ddd + " - " + Detail.city}}</option>
+      </select>
+    </div>
+
+    <div class="select-wrapper">
+      <label for="teste">Tempo</label>
+      <input restrict="[^a-z0-9\-\s]" name="origin" id="origin" ng-model="callInfo.minutes">
+      <!-- <span>{{callInfo}}</span> -->
+    </div>
+  </article>
+
+  <footer class="plan result">
+    <div ng-repeat="plan in dddPlan.data">
+      <h3>{{plan.plan}}</h3>
+      <!-- <p ng-if="(callInfo.minutes - plan.time) >0">{{(callInfo.minutes-plan.time) * callInfo.tenPercent | currency: "R$ " :2}}</p> -->
+      <!-- OBS: Não consegui uma forma de estilizar o 'currency' e os decimais a tempo -->
+      <p ng-if="(callInfo.minutes - plan.time) >0">{{(callInfo.minutes-plan.time) * callInfo.tenPercent | currency: " R$" :2}}</p>
+      <p ng-if="(callInfo.minutes - plan.time) <=0">-</p>
+    </div>
+
+    <div>
+      <h3>Normal</h3>
+      <p ng-if="(callInfo.minutes - plan.time) >0">{{callInfo.price * callInfo.minutes | currency:"R$ "}}</p>
+      <p ng-if="(callInfo.minutes - plan.time) <=0">-</p>
+    </div>
+  </footer>
+
+    <script src="bower_components/angular/angular.js"></script>
+
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Open+Sans:300,600,400:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })(); </script>
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/fetchresults.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

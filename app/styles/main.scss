@@ -1,0 +1,104 @@
+@import 'vars';
+
+body, html{margin: 0; padding: 0;}
+
+body{
+  text-align: center;
+  *{font-family: 'Open Sans', sans-serif;}
+
+  header{ 
+    background-color: #2f3032;
+    padding: 50px;
+
+    h1#brand{ 
+      background-image: url("../images/scup-logo.svg");
+      background-size: 150px 40px;
+      width: 282px;
+      height: 40px;
+      background-repeat: no-repeat;
+      line-height: 0.6em;
+      font-size: 47px;
+      font-weight: 100;
+      text-align: right;
+      color: $secondary-color;
+      margin: 0 auto;
+      position: relative;
+      span.smal{  
+        position: absolute;
+        top: -11px;
+        font-size: 30px;
+        right: -9px;
+        opacity: 0.5;
+      }
+    }
+  }
+  
+  article::first-child .select-wrapper{background-color: red;}
+
+  article{  
+    padding-top: 80px;
+    h2{
+      color: $secondary-color ;
+      font-seize: 35px;
+      font-weight: 100;
+    }
+    label{
+      display: block;
+      text-align: left;
+      margin-left: 30px;
+    }
+    .select-wrapper{
+      display: inline-block;
+      position: relative;
+      &:first-child{background-color: red;
+        &::before{
+        display: none;
+        }
+      }
+      &::before{
+        content: '+';
+        padding: 5px 10px;
+        background-color: grey;
+        margin: top;
+        position: absolute;
+        left: -15px;
+        top: 32px;
+        color: $secondary-color;
+      }
+      select, input{
+        height: 53px;
+        width: 77px;
+        padding: 7px 10px;
+        background-color: $primary-color;
+        border: none;
+        -webkit-appearance: none; -webkit-webkit-appearance: none; -moz-webkit-appearance: none; -ms-webkit-appearance: none; -o-webkit-appearance: none; webkit-appearance: none;
+        outline: none;
+        border-radius: 0;
+        border: 1px solid $secondary-color;
+        font-size: 30px;
+        color: $secondary-color;
+        margin: 0 30px;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  footer{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    width: 100%;
+    *{color: $primary-color;}
+
+    > div{display: inline-block; margin: 0 60px;}
+    p{
+      font-size: 35px; 
+      margin-top: 0;
+      span{ 
+        font-size: 20px;
+        }
+    }
+
+  }
+
+}
