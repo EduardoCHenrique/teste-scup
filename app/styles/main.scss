@@ -33,15 +33,15 @@ body{
     }
   }
   
-  article::first-child .select-wrapper{background-color: red;}
+  h2{
+    color: $secondary-color ;
+    font-seize: 35px;
+    font-weight: 100;
+    margin-top: 50px;
+  }
 
   article{  
-    padding-top: 80px;
-    h2{
-      color: $secondary-color ;
-      font-seize: 35px;
-      font-weight: 100;
-    }
+    padding-top: 20px;
     label{
       display: block;
       text-align: left;
@@ -50,7 +50,7 @@ body{
     .select-wrapper{
       display: inline-block;
       position: relative;
-      &:first-child{background-color: red;
+      &:first-child{
         &::before{
         display: none;
         }
